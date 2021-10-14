@@ -8,6 +8,7 @@ public class Exam01 {
 		// 그리고 이 문자열을 역순으로 다시 출력하는 프로그램을 작성
 
 		String str = "ABCDEFGHIJKLMN";
+		str.toString();
 		for (int i = str.length() - 1; i >= 0; i--) {
 			System.out.print(str.charAt(i));
 		}
@@ -22,5 +23,6 @@ public class Exam01 {
 		StringBuilder str2 = new StringBuilder("990929-1010123");
 		int index = str2.indexOf("-");
 		System.out.println(str2.deleteCharAt(index));
+		
 	}
 }

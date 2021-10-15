@@ -1,6 +1,6 @@
 package exam;
 
-public class Exam03 {
+public class Exam03Array {
 	public static void main(String[] args) {
 
 		// 국어, 영어, 수학 점수 10개씩을 저장하는 배열을 정의하고 점수를 모두 출력하고, 평균 점수를 출력하는 프로그램
@@ -33,10 +33,10 @@ public class Exam03 {
 		int korTotal = 0; 
 		int engTotal = 0;
 		int mathTotal = 0;
-		for(int i = 0; i < score.length; i++) {
-				korTotal += score[i][0];
-				engTotal += score[i][1];
-				mathTotal += score[i][2];
+		for(int[] t : score) {
+				korTotal += t[0];
+				engTotal += t[1];
+				mathTotal += t[2];
 			}
 		double korAver = (double)korTotal / NUM;
 		double engAver = (double)engTotal / NUM;

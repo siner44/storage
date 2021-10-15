@@ -38,9 +38,9 @@ public class Exam03 {
 				engTotal += score[i][1];
 				mathTotal += score[i][2];
 			}
-		float korAver = (float)korTotal / NUM;
-		float engAver = (float)engTotal / NUM;
-		float mathAver = (float)mathTotal / NUM;
+		double korAver = (double)korTotal / NUM;
+		double engAver = (double)engTotal / NUM;
+		double mathAver = (double)mathTotal / NUM;
 		
 		System.out.print("국어 총점: " + korTotal+"\t");
 		System.out.println("국어 평균: " + korAver);

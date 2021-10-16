@@ -1,4 +1,4 @@
-package project01;
+package project;
 
 import java.util.Scanner;
 
@@ -64,6 +64,15 @@ public class Contact {
 	Contact() {
 
 	}
+	
+	Contact(String name, String phoneNumber, String mail, String address, String birthDay,String group){
+		this.name = name;
+		this.phoneNumber = phoneNumber;
+		this.mail = mail;
+		this.address = address;
+		this.birthDay = birthDay;
+		this.group = group;
+	}
 
 	// 데이터 출력
 	void printContact() {
@@ -73,6 +82,11 @@ public class Contact {
 		System.out.println("주소: " + getAddress());
 		System.out.println("생일: " + getBirthDay());
 		System.out.println("그룹: " + getGroup());
+	}
+	
+	public String toString() {
+		return name+"\t"+phoneNumber+"\t"+mail+"\t"+address+"\t"+birthDay+"\t"+group ;
+
 	}
 
 	// main() 메소드 정의

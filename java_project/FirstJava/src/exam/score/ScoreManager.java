@@ -48,7 +48,7 @@ public class ScoreManager {
 		// -1 또는 배열 범위 안의 정수
 		int index = searchIndex(name);
 
-		if (searchIndex(name) > -1) {
+		if (index > -1) {
 			System.out.println(score[index]);
 		} else {
 			System.out.println("검색한 이름의 데이터가 존재하지 않습니다.");

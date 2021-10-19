@@ -144,7 +144,7 @@ public class SmartPhone {
 		String birthDay = sc.nextLine();
 
 		System.out.println("그룹을 입력하세요");
-		System.out.println("> ");
+		System.out.print("> ");
 		String group = sc.nextLine();
 
 		add(new Contact(name, phoneNumber, mail, address, birthDay, group));

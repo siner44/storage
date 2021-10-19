@@ -1,6 +1,6 @@
 package chapter07;
 
-public class Friend {
+public abstract class Friend {
 
 	// 개인 정보 관리 프로그램
 	// 정보를 저장하는 변수
@@ -23,8 +23,10 @@ public class Friend {
 	}
 
 	// 오버라이딩을 목적으로 하는 메소드
-	public void showBasicInfo() {
+	// public void showBasicInfo() { }
 
-	}
-
+	// 추상 메소드 : 처리 블록이 없다.
+	//           미완성된 메소드
+	//           상속을 통해 완성시켜야 하는 메소드
+	public abstract void showBasicInfo();
 }

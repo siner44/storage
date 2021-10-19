@@ -62,10 +62,9 @@ public class Contact {
 
 	// 생성자 정의
 	Contact() {
-
 	}
-	
-	Contact(String name, String phoneNumber, String mail, String address, String birthDay,String group){
+
+	Contact(String name, String phoneNumber, String mail, String address, String birthDay, String group) {
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.mail = mail;
@@ -83,9 +82,9 @@ public class Contact {
 		System.out.println("생일: " + getBirthDay());
 		System.out.println("그룹: " + getGroup());
 	}
-	
+
 	public String toString() {
-		return name+"\t"+phoneNumber+"\t"+mail+"\t"+address+"\t"+birthDay+"\t"+group ;
+		return name + "\t" + phoneNumber + "\t" + mail + "\t" + address + "\t" + birthDay + "\t" + group;
 
 	}
 
@@ -145,7 +144,5 @@ public class Contact {
 		System.out.println("-------------------------------------");
 		contact.printContact();
 		System.out.println("-------------------------------------");
-
 	}
-
 }

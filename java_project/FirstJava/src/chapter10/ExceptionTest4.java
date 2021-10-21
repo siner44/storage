@@ -3,8 +3,9 @@ package chapter10;
 import java.util.Scanner;
 
 public class ExceptionTest4 {
+
 	public static void main(String[] args) {
-		
+
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("피제수를 입력해주세요.");
@@ -19,10 +20,10 @@ public class ExceptionTest4 {
 		} catch (ArithmeticException e) {
 			System.out.println("0으로 나누기를 할 수 없습니다.");
 			System.out.println(e.getMessage());
-		} 
-		
+		}
+
 		System.out.println("프로그램을 종료 합니다.");
-		
-		
+
 	}
+
 }

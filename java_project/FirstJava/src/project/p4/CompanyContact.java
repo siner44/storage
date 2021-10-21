@@ -1,4 +1,4 @@
-package project;
+package project.p4;
 
 public class CompanyContact extends Contact {
 
@@ -52,5 +52,9 @@ public class CompanyContact extends Contact {
 	public String toString() {
 		return super.toString() + "\t" + companyName + "\t" + department + "\t" + position;
 
+	}
+
+	@Override
+	public void showData() {
 	}
 }

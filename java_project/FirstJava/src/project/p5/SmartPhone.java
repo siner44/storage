@@ -1,4 +1,4 @@
-package project;
+package project.p5;
 
 import java.util.Scanner;
 
@@ -44,26 +44,33 @@ public class SmartPhone {
 			System.out.println("이름을 입력하세요");
 			System.out.print("> ");
 			name = sc.nextLine();
+			check(name);
 
 			System.out.println("전화번호를 입력하세요");
 			System.out.print("> ");
 			String phoneNumber = sc.nextLine();
+			check(phoneNumber);
+			checkNum(phoneNumber);
 
 			System.out.println("이메일을 입력하세요");
 			System.out.print("> ");
 			String mail = sc.nextLine();
+			check(mail);
 
 			System.out.println("주소를 입력하세요");
 			System.out.print("> ");
 			String address = sc.nextLine();
+			check(address);
 
 			System.out.println("생일을 입력하세요");
 			System.out.print("> ");
 			String birthDay = sc.nextLine();
+			check(birthDay);
 
 			System.out.println("그룹을 입력하세요");
 			System.out.print("> ");
 			String group = sc.nextLine();
+			check(group);
 
 			contact[index] = new Contact(name, phoneNumber, mail, address, birthDay, group);
 
@@ -125,34 +132,65 @@ public class SmartPhone {
 
 	// 정보 저장 후 배열에 저장
 	public void addContact() {
+
 		System.out.println("연락처 데이터 입력");
 		System.out.println("-----------------------------");
+
 		System.out.println("이름을 입력하세요");
 		System.out.print("> ");
 		String name = sc.nextLine();
+		check(name);
 
 		System.out.println("전화번호를 입력하세요");
 		System.out.print("> ");
 		String phoneNumber = sc.nextLine();
+		check(phoneNumber);
 
 		System.out.println("이메일을 입력하세요");
 		System.out.print("> ");
 		String mail = sc.nextLine();
+		check(mail);
 
 		System.out.println("주소를 입력하세요");
 		System.out.print("> ");
 		String address = sc.nextLine();
+		check(address);
 
 		System.out.println("생일을 입력하세요");
 		System.out.print("> ");
 		String birthDay = sc.nextLine();
+		check(birthDay);
 
 		System.out.println("그룹을 입력하세요");
 		System.out.print("> ");
 		String group = sc.nextLine();
+		check(group);
 
 		add(new Contact(name, phoneNumber, mail, address, birthDay, group));
 
 		System.out.println("입력 완료");
+	}
+
+	String check(String s) {
+
+		while (s.isEmpty()) {
+			System.out.println("내용이 입력되지 않았습니다. 다시 입력해주세요.");
+			System.out.print("> ");
+			s = sc.nextLine();
+		}
+
+		return s;
+	}
+
+	String checkNum(String s) {
+		for (int i = 0; i < numOfPeople; i++) {
+			while (contact[i].getPhoneNumber().equals(s)) {
+				System.out.println("중복된 번호입니다.");
+				System.out.println("전화번호를 입력하세요.");
+				System.out.print("> ");
+				s = sc.nextLine();
+			}
+		}
+		return s;
 	}
 }

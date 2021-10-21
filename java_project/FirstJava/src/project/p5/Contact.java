@@ -1,4 +1,4 @@
-package project;
+package project.p5;
 
 public class Contact {
 	// 변수 캡슐화

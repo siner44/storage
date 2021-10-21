@@ -1,6 +1,6 @@
-package project;
+package project.p4;
 
-public class Contact {
+public abstract class Contact implements ShowData {
 	// 변수 캡슐화
 	private String name;
 	private String phoneNumber;
@@ -84,4 +84,7 @@ public class Contact {
 	public String toString() {
 		return name + "\t" + phoneNumber + "\t" + mail + "\t" + address + "\t" + birthDay + "\t" + group;
 	}
+
+	@Override
+	public abstract void showData();
 }

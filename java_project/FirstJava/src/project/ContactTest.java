@@ -6,7 +6,7 @@ public class ContactTest {
 	// main() 메소드 정의
 	public static void main(String[] args) {
 		// 연락처 데이터를 저장하는 인스턴스 생성
-		Contact contact = new Contact();
+		Contact contact = new Contact("김철수", "010-0000-0000", "kim00@gmail.com", "서울시 강남구", "1999.11.11", "비트캠프");
 
 		// 변수 값을 반환하는 각각의 메소드를 호출해서 각 데이터를 출력문으로 출력
 		System.out.println("이름: " + contact.getName());

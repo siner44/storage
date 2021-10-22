@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class SmartPhone {
 
-	public static final Scanner sc = new Scanner(System.in);
+	public static Scanner sc = new Scanner(System.in);
 	private Contact[] contact;
 	private int numOfPeople;
 

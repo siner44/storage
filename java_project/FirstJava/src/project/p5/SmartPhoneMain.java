@@ -29,8 +29,10 @@ public class SmartPhoneMain {
 				} else if (choice == 6) {
 					System.out.println("프로그램 종료");
 					break;
+				} else {
+					System.out.println("해당 메뉴는 존재하지 않습니다. 다시 입력해주세요.");
 				}
-			} catch (Exception e) {
+			} catch (NumberFormatException e) {
 				System.out.println("다시 입력해주세요.");
 			}
 		}

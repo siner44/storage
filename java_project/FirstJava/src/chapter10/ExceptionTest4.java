@@ -17,9 +17,6 @@ public class ExceptionTest4 {
 			System.out.println(num1 / num2);
 		} catch (Exception e) {
 			System.out.println("예외!!!!");
-		} catch (ArithmeticException e) {
-			System.out.println("0으로 나누기를 할 수 없습니다.");
-			System.out.println(e.getMessage());
 		}
 
 		System.out.println("프로그램을 종료 합니다.");

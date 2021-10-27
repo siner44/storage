@@ -18,7 +18,7 @@ public class CountDown extends Thread {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("10초안에 맞추지 못해 프로그램을 종료합니다.");
+		System.out.println("20초안에 맞추지 못해 프로그램을 종료합니다.");
 		System.exit(0);
 	}
 	

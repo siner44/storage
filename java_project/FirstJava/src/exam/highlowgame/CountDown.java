@@ -1,6 +1,6 @@
 package exam.highlowgame;
 
-public class CountDownThread extends Thread {
+public class CountDown extends Thread {
 	
 	@Override
 	public void run() {
@@ -10,10 +10,10 @@ public class CountDownThread extends Thread {
 				System.out.println("정답 입력이 완료되어 카운트다운을 멈춤니다.");
 				return;
 			}
-			System.out.println(i);
+			System.out.println(i + "초");
 
 			try {
-				Thread.sleep(2000);
+				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

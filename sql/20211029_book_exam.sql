@@ -12,9 +12,7 @@ from book
 where price >= 20000;
 
 -- (3) 박지성의총구매액(박지성의고객번호는1번으로놓고작성)
-select saleprice
-from orders
-where custid = 1;
+
 
 -- (4) 박지성이구매한도서의수(박지성의고객번호는1번으로놓고작성)
 

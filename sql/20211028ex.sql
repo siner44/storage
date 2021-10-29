@@ -84,7 +84,6 @@ INSERT INTO Customer VALUES (4, '추신수', '미국 클리블랜드', '000-8000
 
 INSERT INTO Customer VALUES (5, '박세리', '대한민국 대전', NULL);
 
-​
 
 -- 주문(Orders) 테이블의 책값은 할인 판매를 가정함
 
@@ -107,7 +106,5 @@ INSERT INTO Orders VALUES (8, 3, 10, 12000, TO_DATE('2014-07-08','yyyy-mm-dd'));
 INSERT INTO Orders VALUES (9, 2, 10, 7000, TO_DATE('2014-07-09','yyyy-mm-dd')); 
 
 INSERT INTO Orders VALUES (10, 3, 8, 13000, TO_DATE('2014-07-10','yyyy-mm-dd'));
-
-​
 
 COMMIT;

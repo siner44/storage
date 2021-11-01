@@ -82,14 +82,29 @@ group by deptno;
 ​
 -- 30. 각 부서에 대해 부서번호 이름, 지역 명, 사원 수, 부서내의 모든 사원의 평균 급여를 출력하시오. 
 -- 평균 급여는 정수로 반올림 하시오. DECODE 사용.
-select deptno, dname, loc, 
+select deptno, decode(
+    deptno, 10, 'ACCOUNTING',
+            20, 'RESEARCH',
+            30, 'SALES',
+            40, 'OPERATIONS') as deptname,
+            decode(
+    deptno, 10, 'NEWYORK',
+            20, 'DALLAS',
+            30, 'CHICAGO',
+            40, 'BOSTON') as loc,
+            to_char(avg(sal), 'L999,999,999') as "평균 급여",
+            count(*)
+from emp
+group by deptno;
 ​
 
 
 -- 31. 업무를 표시한 다음 해당 업무에 대해 부서 번호별 급여 및 부서 10, 20, 30의 급여 총액을 각각 출력하시오.
 -- 별칭은 각 job, dno, 부서 10, 부서 20, 부서 30, 총액으로 지정하시오. 
-select deptno as dno, decode(deptno, 10, to_char(sum(sal), 'L999,999,999'),
-                              20, to_char(sum(sal), 'L999,999,999'),
-                              30, to_char(sum(sal), 'L999,999,999'))
+select job, deptno as dno, nvl(decode(deptno, 10, to_char(sum(sal), 'L999,999,999')) as "10번 부서",
+                           nvl(decode(deptno, 20, to_char(sum(sal), 'L999,999,999')) as "20번 부서",
+                           nvl(decode(deptno, 30, to_char(sum(sal), 'L999,999,999')) as "30번 부서",
+                           sum(sal) as "총액"
 from emp
-group by deptno;
+group by job, deptno
+order by deptno, job;

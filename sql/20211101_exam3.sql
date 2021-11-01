@@ -1,7 +1,7 @@
 
 -- 1. 마당 서점의 고객이 요구하는 다음 질문에 대해 SQL문을 작성
 -- 5) 박지성이 구매한 도서의 출판사 수
-select count(publisher)
+select count(publisher) "출판사 수"
 from book, orders
 where book.bookid = orders.bookid and custid = 
 (select custid
@@ -34,13 +34,13 @@ select to_char(sum(saleprice), 'L999,999,999') "주문 총액",
 from orders;
 
 -- 10) 고객의 이름과 고객별 구매액
-select name, sum(saleprice)
+select name, sum(saleprice) "구매액"
 from customer c, orders o
 where c.custid = o.custid
 group by name;
 
 -- 11) 고객의 이름과 고객이 구매한 도서 목록
-select name, (select bookname from book where book.bookid = orders.bookid)
+select name, (select bookname from book where book.bookid = orders.bookid) "구매한 도서 목록"
 from orders, customer
 where orders.custid = customer.custid
 order by name;

@@ -34,18 +34,37 @@ select to_char(sum(saleprice), 'L999,999,999') "주문 총액",
 from orders;
 
 -- 10) 고객의 이름과 고객별 구매액
-select name, saleprice
+select name, sum(saleprice)
 from customer c, orders o
 where c.custid = o.custid
-group by name, saleprice;
+group by name;
 
 -- 11) 고객의 이름과 고객이 구매한 도서 목록
+select name, (select bookname from book where book.bookid = orders.bookid)
+from orders, customer
+where orders.custid = customer.custid
+order by name;
 
 -- 12) 도서의 가격(Book 테이블)과 판매 가격(Orders 테이블)의 차이가 가장 많은 주문
+select *
+from orders natural join book
+where (price-saleprice) = (select max(price-saleprice) from book natural join orders );
 
 -- 13) 도서의 판매액 평균보다 자신의 구매액 평균이 더 높은 고객의 이름
+select name
+from customer natural join orders
+having avg(saleprice) > (select avg(saleprice) from orders)
+group by name;
 
 -- 3. 마당서점에서 다음의 심화된 질문에 대해 SQL문을 작성
 -- 1) 박지성이 구매한 도서의 출판사와 같은 출판사에서 도서를 구매한 고객의 이름
+select name 
+from customer natural join orders natural join book
+where publisher in (select publisher from customer natural join orders natural join book where name = '박지성') and not name = '박지성'
+order by name desc;
 
 -- 2) 두 개 이상의 서로 다른 출판사에서 도서를 구매한 고객의 이름
+select name
+from customer natural join book natural join orders
+having count(distinct publisher)>= 2
+group by name;

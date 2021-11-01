@@ -35,8 +35,8 @@ from orders;
 
 -- 10) 고객의 이름과 고객별 구매액
 select name, sum(saleprice) "구매액"
-from customer c, orders o
-where c.custid = o.custid
+from customer, orders
+where customer.custid = orders.custid
 group by name;
 
 -- 11) 고객의 이름과 고객이 구매한 도서 목록
@@ -47,12 +47,13 @@ order by name;
 
 -- 12) 도서의 가격(Book 테이블)과 판매 가격(Orders 테이블)의 차이가 가장 많은 주문
 select *
-from orders natural join book
-where (price-saleprice) = (select max(price-saleprice) from book natural join orders );
+from orders , book
+where orders.bookid = book.bookid and (price-saleprice) = (select max(price-saleprice) from book natural join orders );
 
 -- 13) 도서의 판매액 평균보다 자신의 구매액 평균이 더 높은 고객의 이름
 select name
-from customer natural join orders
+from customer, orders
+where customer.custid = orders.custid
 having avg(saleprice) > (select avg(saleprice) from orders)
 group by name;
 
@@ -60,8 +61,7 @@ group by name;
 -- 1) 박지성이 구매한 도서의 출판사와 같은 출판사에서 도서를 구매한 고객의 이름
 select name 
 from customer natural join orders natural join book
-where publisher in (select publisher from customer natural join orders natural join book where name = '박지성') and not name = '박지성'
-order by name desc;
+where publisher in (select publisher from customer natural join orders natural join book where name = '박지성') and not name = '박지성';
 
 -- 2) 두 개 이상의 서로 다른 출판사에서 도서를 구매한 고객의 이름
 select name

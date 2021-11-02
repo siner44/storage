@@ -1,7 +1,7 @@
 
 -- 1. 마당 서점의 고객이 요구하는 다음 질문에 대해 SQL문을 작성
 -- 5) 박지성이 구매한 도서의 출판사 수
-select count(publisher) "출판사 수"
+select count(distinct publisher) "출판사 수"
 from book, orders
 where book.bookid = orders.bookid and custid = 
 (select custid

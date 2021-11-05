@@ -104,7 +104,7 @@ desc dept;
 insert into dept (deptno, dname, loc)
     values (10, 'test', 'seoul');
     
--- 사원 테이블과 유사함 구조의
+-- 사원 테이블과 유사한 구조의
 -- 사원번호, 사원명, 직급, 부서번호 4개의 칼럼으로 구성된
 -- empno와 ename 컬럼에 not null 제약 조건 설정
 create table emp02 (

@@ -1,4 +1,8 @@
 
+drop table phoneinfo_basic;
+drop table phoneinfo_univ;
+drop table phoneinfo_com;
+
 -- DDL
 create table phoneinfo_basic (
     idx number(6) CONSTRAINT phoneinfo_basic_idx_pk PRIMARY key,
@@ -8,17 +12,22 @@ create table phoneinfo_basic (
     fr_address varchar2(20),
     fr_regdate date DEFAULT sysdate);
 
+-- phoneinfo_basic 테이블 pk ->  idx에 입력할 일련번호
+-- 시퀀스 생성
+create sequence pib_idx_seq
+    start with 1 minvalue 1 maxvalue 999999 increment by 1;
+
 -- insert
 insert into phoneinfo_basic values(
-    1, '김철수', '010-1111-1111', 'a000@gmail.com', '경기도 안양', sysdate);
+    PIB_IDX_SEQ.nextval, '김철수', '010-1111-1111', 'a000@gmail.com', '경기도 안양', sysdate);
 insert into phoneinfo_basic values(
-    2, '김영희', '010-1111-2222', 'a001@gmail.com', '부산', sysdate);
+    PIB_IDX_SEQ.nextval, '김영희', '010-1111-2222', 'a001@gmail.com', '부산', sysdate);
 insert into phoneinfo_basic values(
-    3, '이영우', '010-1111-3333', 'a002@gmail.com', '서울', sysdate);
+    PIB_IDX_SEQ.nextval, '이영우', '010-1111-3333', 'a002@gmail.com', '서울', sysdate);
 insert into phoneinfo_basic values(
-    4, '홍길동', '010-1111-4444', 'a003@gmail.com', '강원도 동해', sysdate);
+    PIB_IDX_SEQ.nextval, '홍길동', '010-1111-4444', 'a003@gmail.com', '강원도 동해', sysdate);
 insert into phoneinfo_basic values(
-    5, '점순이', '010-1111-5555', 'a004@gmail.com', '대전', sysdate);
+    PIB_IDX_SEQ.nextval, '점순이', '010-1111-5555', 'a004@gmail.com', '대전', sysdate);
 -- update
 update phoneinfo_basic set fr_address = '강원도 강릉' where idx = 4;
 -- delete
@@ -32,13 +41,18 @@ create table phoneinfo_univ (
     fr_u_year number(1) default 1 not null check(fr_u_year between 1 and 4),
     fr_ref number(7) constraint phoneinfo_univ_fr_ref_fk REFERENCES phoneinfo_basic(idx)
     );
+
+-- 시퀀스
+create SEQUENCE piu_idx_seq
+    MAXVALUE 999999;
+
 -- insert
 insert into phoneinfo_univ values(
-    1, '국어국문학과', '3', 1);
+    PIU_IDX_SEQ.nextval, '국어국문학과', '3', 1);
 insert into phoneinfo_univ values(
-    2, '유아교육과', '2', 2);
+    PIU_IDX_SEQ.nextval, '유아교육과', '2', 2);
 insert into phoneinfo_univ values(
-    3, '컴퓨터공학과', '3', 3);
+    PIU_IDX_SEQ.nextval, '컴퓨터공학과', '3', 3);
 -- update
 update phoneinfo_univ set fr_u_year = 4 where fr_ref = (select idx from phoneinfo_basic where fr_name = '이영우');
 -- delete

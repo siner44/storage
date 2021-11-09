@@ -1,12 +1,17 @@
-package project;
+package test;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ReservationController {
 	public static Scanner sc = new Scanner(System.in);
-	ArrayList<ReservationDTO> rList = new ArrayList<ReservationDTO>();
-
+	ArrayList<ReservationDTO> list;
+	
+	public ReservationController() {
+		list = new ArrayList<ReservationDTO>();
+	}
+	
+	
 	public void add() {
 		System.out.println("예약 등록");
 		System.out.println("----------------------------");
@@ -18,16 +23,24 @@ public class ReservationController {
 		System.out.println("전화번호를 입력하세요");
 		System.out.print("> ");
 		String rPhoneNumber = sc.nextLine();
+		
+		System.out.println("예약 날짜를 입력하세요");
+		System.out.print("> ");
+		String rDate = sc.nextLine();
+		
+		System.out.println("인원 수를 입력하세요");
+		System.out.print("> ");
+		int count =Integer.parseInt(sc.nextLine());
 
-		rList.add(new ReservationDTO(rName, rPhoneNumber));
+		list.add(new ReservationDTO(rName, rPhoneNumber, rDate, count));
 
 		System.out.println("예약 성공");
 	}
 
 	private int searchIndex(String name) {
 		int index = -1;
-		for (int i = 0; i < rList.size(); i++) {
-			if (rList.get(i).getrName().equals(name)) {
+		for (int i = 0; i < list.size(); i++) {
+			if (list.get(i).getrName().equals(name)) {
 				index = i;
 				break;
 			}
@@ -53,7 +66,15 @@ public class ReservationController {
 		System.out.print("> ");
 		String rPhoneNumber = sc.nextLine();
 
-		rList.set(index, new ReservationDTO(rName, rPhoneNumber));
+		System.out.println("예약 날짜를 입력하세요");
+		System.out.print("> ");
+		String rDate = sc.nextLine();
+		
+		System.out.println("인원 수를 입력하세요");
+		System.out.print("> ");
+		int count =Integer.parseInt(sc.nextLine());
+
+		list.set(index, new ReservationDTO(rName, rPhoneNumber, rDate, count));
 		
 		System.out.println("수정 성공");
 	}
@@ -65,12 +86,12 @@ public class ReservationController {
 
 		int index = searchIndex(name);
 
-		rList.remove(index);
+		list.remove(index);
 		System.out.println("취소 성공");
 	}
 
 	void showNumber() {
-		System.out.println("예약 갯수: " + rList.size());
+		System.out.println("예약 갯수: " +list.size());
 	}
 
 	void show() {
@@ -80,7 +101,7 @@ public class ReservationController {
 		
 		int index = searchIndex(name);
 		
-		System.out.println(rList.get(index));
+		System.out.println(list.get(index));
 		
 	}
 	
@@ -92,8 +113,8 @@ public class ReservationController {
 		rc.update();
 		rc.add();
 
-		for (int i = 0; i < rc.rList.size(); i++) {
-			System.out.println(rc.rList.get(i));
+		for (int i = 0; i < rc.list.size(); i++) {
+			System.out.println(rc.list.get(i));
 		}
 		rc.showNumber();
 	}

@@ -84,12 +84,6 @@ public class ReservationController {
 		
 	}
 	
-	
-	
-	
-	
-	
-	
 	public static void main(String[] args) {
 		ReservationController rc = new ReservationController();
 

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 // Data Access Object : Sql 처리만 하는 클래스
-public class DeptDao {
+public class DeptDAO {
 	
 	// 변수가 없는 클래스, 기능만 있는 클래스
 	// 인스턴스를 하나만 만들어 써도 된다.
@@ -18,15 +18,15 @@ public class DeptDao {
 	// 싱글톤 패턴
 	// 인스턴스 하나만 만들어 사용하도록 하는 패턴
 	// 외부에서 인스턴스를 생성하지 못하도록 처리 -> 생성자의 접근제어자를 private
-	private DeptDao() {
+	private DeptDAO() {
 		
 	}
 	
 	// 클래스 내부에서 인스턴스를 생성, 이 인스턴스에 직접 접근 못하도록
-	private static DeptDao dao = new DeptDao();
+	private static DeptDAO dao = new DeptDAO();
 	
 	// 내부에서 만들어진 인스턴스를 특정 메소드를 이용해서 받을 수 있도록
-	public static DeptDao getInstance() {
+	public static DeptDAO getInstance() {
 		return dao;
 	}
 	

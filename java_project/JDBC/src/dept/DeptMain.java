@@ -8,7 +8,7 @@ public class DeptMain {
 	public static void main(String[] args) {
 //		DeptDao deptDao = new DeptDao();
 		
-		DeptDao deptDao = DeptDao.getInstance();
+		DeptDAO deptDao = DeptDAO.getInstance();
 		
 		List<Dept> list = null;
 

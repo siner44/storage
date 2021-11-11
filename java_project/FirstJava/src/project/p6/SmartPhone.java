@@ -188,17 +188,14 @@ public class SmartPhone {
 
 					if (c1 || c2 || c3) {
 						BadNameInputException bne = new BadNameInputException("영문자 또는 한글만 입력 가능합니다. 다시 입력해주세요");
-
 						try {
 							throw bne;
 						} catch (BadNameInputException e) {
 							System.out.println(e.getMessage());
 							check = true;
 							break;
-
 						}
 					}
-
 				}
 				if(!check) {
 					break;
@@ -276,19 +273,14 @@ public class SmartPhone {
 					//break;
 				} 
 
-				// 같은 번호가 존재하면 while문을 벋어나지 않는다
+				// 같은 번호가 존재하면 while문을 벗어나지 않는다
 				if (!chk) {
 					break;
 				}
 			} else {
 				System.out.println("공백문자를 허용하지 않습니다. 다시입력하세요.");
 			}
-
 		}
-
 		return number;
-
 	}
-
-	
 }

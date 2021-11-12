@@ -1,4 +1,4 @@
-package reservation;
+package reservation1;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,20 +8,18 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import jdbc.JdbcUtil;
-
 public class ReservationDAO {
-
+	
 	private ReservationDAO() {
-
+		
 	}
-
+	
 	private static ReservationDAO dao = new ReservationDAO();
-
+	
 	public static ReservationDAO getInstance() {
 		return dao;
 	}
-
+	
 	// 전체 리스트
 	public List<ReservationDTO> show(Connection conn) {
 
@@ -36,8 +34,7 @@ public class ReservationDAO {
 			rs = stmt.executeQuery(sql);
 
 			while (rs.next()) {
-				result.add(new ReservationDTO(rs.getInt(1), rs.getString(2).substring(2, 13), rs.getString(3),
-						rs.getString(4), rs.getInt(5), rs.getInt(6)));
+				result.add(new ReservationDTO(rs.getInt(1), rs.getString(2).substring(2,13), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6)));
 			}
 		} catch (SQLException e) {
 			System.out.println("예외");
@@ -65,8 +62,7 @@ public class ReservationDAO {
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				r = new ReservationDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5),
-						rs.getInt(6));
+				r = new ReservationDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6));
 			}
 
 		} catch (SQLException e) {
@@ -94,7 +90,7 @@ public class ReservationDAO {
 			pstmt.setString(3, r.getRphonenumber());
 			pstmt.setInt(4, r.getRcount());
 			pstmt.setInt(5, r.getTid());
-
+			
 			result = pstmt.executeUpdate();
 
 		} catch (SQLException e) {
@@ -114,7 +110,7 @@ public class ReservationDAO {
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-
+			
 			pstmt.setString(1, r.getRname());
 			pstmt.setString(2, r.getRdate());
 			pstmt.setString(3, r.getRphonenumber());

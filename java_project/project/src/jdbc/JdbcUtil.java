@@ -1,4 +1,4 @@
-package reservation;
+package jdbc;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -36,4 +36,5 @@ public class JdbcUtil {
 			}
 		}
 	}
+
 }

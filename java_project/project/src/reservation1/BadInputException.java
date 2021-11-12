@@ -1,4 +1,4 @@
-package reservation;
+package reservation1;
 
 
 public class BadInputException extends Exception {

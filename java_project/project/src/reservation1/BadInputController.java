@@ -1,7 +1,8 @@
-package reservation;
+package reservation1;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class BadInputController {
@@ -89,37 +90,32 @@ public class BadInputController {
 		return phoneNum;
 	}
 
-//	public String checkRdate(String message) {
-//		String rDate;
-//		int noticeCode = 0;
-//		while (true) {
-//			try {
-//				System.out.println("---------------------------------------------------------");
-//				// 원하시는 날짜와 시간을 입력해주세요. (예: 21-11-12 15:00 \n>
-//				System.out.print(message);
-//				rDate = scanner.nextLine().trim();
-//				Boolean b = 
-//				checkBadInput(!());
-//				break;
-//			} catch (BadInputException e) {
-//				System.out.println(e.getMessage());
-//			}
-//		}
-//		return rDate;
-//	}
-	
-	boolean validInputEntranceTime(String date) {
-		if(date.length() != 19) {
-			return false;
+	String validInputEntranceTime(String message) {
+		
+		String s;
+
+		String date = "";
+		
+		while (true) {
+
+			try {
+				System.out.println("---------------------------------------------------------");
+				System.out.println(message);
+				System.out.print(">>  ");
+				s = scanner.nextLine().trim();
+				checkBadInput(!(s.matches("^\\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01]) (0[1-9]|1[0-9]|2[0-4])")));
+				
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH");
+				Date formatD = sdf.parse(s);
+				date = sdf.format(formatD);
+				break;
+			}  catch (BadInputException e) {
+				System.out.println(e.getMessage());
+			}catch (ParseException e) {
+				e.printStackTrace();
+			}
+
 		}
-		try {
-		String format = "yyyy-MM-dd HH:mm:ss";
-		SimpleDateFormat sdf = new SimpleDateFormat(format);
-		sdf.setLenient(false);
-			sdf.parse(date);
-		return true;
-		} catch (ParseException e) {
-			return false;
-		}
+		return date;
 	}
 }

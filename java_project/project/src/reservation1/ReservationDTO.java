@@ -1,4 +1,4 @@
-package reservation;
+package reservation1;
 
 public class ReservationDTO {
 
@@ -22,11 +22,10 @@ public class ReservationDTO {
 	}
 	
 	public ReservationDTO(String rdate, String rname, String rphonenumber, int rcount,int tid) {
-		
 		this.rname = rname;
-		this.rdate = rdate;
 		this.rphonenumber = rphonenumber;
 		this.rcount = rcount;
+		this.rdate = rdate;
 		this.tid = tid;
 	}
 

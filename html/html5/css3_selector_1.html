@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>기본 선택자</title>
+    <!-- 기본 선택자 -->
+    <style>
+        /* 선택자{속성이름: 속성값;속성이름:속성값} */
+        * {
+            /* color: blue; */
+            /* background-color:black; */
+        }
+
+        h1 {
+            background-color: brown;
+        }
+
+        #title {
+            font-style: italic;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .bold1 {
+            font-weight: lighter;
+        }
+
+        p {
+            color: red;
+        }
+
+        h1,
+        p {
+            margin: 20px;
+        }
+
+        #header {
+            width: 300px;
+            height: 100px;
+            background-color: grey;
+            /* margin: 10px 20px 30px 40px; top right bottom left */
+            /* margin: 30px 10px;  */
+            margin: 0 auto;
+        }
+
+        div#contents {
+            width: 300px;
+            height: 300px;
+            background-color: seagreen;
+            margin: 0 auto;
+        }
+
+        h1.title {
+            color: seashell;
+            font-weight: lighter;
+        }
+    </style>
+
+    <!-- 등록 선택자 -->
+    <style>
+        input[type] {
+            border: 10px solid #000000;
+        }
+
+        input[type=text] {
+            background-color: blue;
+        }
+
+        input[type=password] {
+            background-color: blueviolet;
+        }
+    </style>
+    <!-- 범위 한정 선택: 자손, 후손 -->
+    <style>
+        #header1 h1 {
+            background-color: white;
+            color: tomato;
+        }
+
+        #section h1 {
+            color: violet;
+        }
+
+        #header1>h1 {
+            color: darkblue;
+            font-weight: bold;
+        }
+
+        /* 동위 선택자: +, ~ */
+        #head1+h1 {
+            color: cadetblue;
+        }
+
+        #head1~h2 {
+            color: darkgreen;
+        }
+    </style>
+
+    <!-- 반응 선택자 -->
+    <style>
+        /* 마우스 커서가 특정 요소 위로 올라갔을 때 반응 */
+        h3:hover {
+            color: darkorange;
+        }
+
+        h3:active {
+            color: darkturquoise;
+        }
+    </style>
+
+    <!-- 상태 선택자 -->
+    <style>
+        input:enabled {
+            border: 5px solid #e27272;
+        }
+
+        input:disabled {
+            background-color: darkgrey;
+        }
+
+        input:focus {
+            background-color: darkorange;
+            border: 5px solid darksalmon;
+        }
+
+        #article {
+            width: 500px;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        input[type=checkbox]:checked+#article {
+            height: 0px;
+        }
+
+        input[type=checkbox] {
+            display: none;
+        }
+
+        li:nth-child(2n) {
+            background-color: gold;
+            color: black;
+        }
+
+        li:nth-child(2n+1) {
+            background-color: brown;
+            color: blueviolet;
+        }
+
+        li:first-child {
+            background-color: darkseagreen;
+            color: darkslateblue;
+            border-radius: 40px 0 0 40px;
+        }
+
+        li:last-child {
+            background-color: darkseagreen;
+            color: darkslateblue;
+            border-radius: 0 40px 40px 0;
+        }
+
+        /* 리스트 태그를 수평방향으로 나열 */
+        ul {
+            overflow: hidden;
+
+            /* 리스트 스타일 */
+            list-style: none;
+        }
+
+        li {
+            float: left;
+            padding: 10px 30px;
+        }
+
+        #photo {
+            border-radius: 50%;
+            border: 3px solid green;
+            width: 100px;
+        }
+    </style>
+
+    <!-- 링크 선택자 -->
+<style>
+    a:link{
+        color: green;
+    }
+    a:visited{
+        color: green;
+    }
+
+    a:hover{
+        color:rgb(230, 103, 0);
+        text-decoration: line-through;
+    }
+</style>
+</head>
+
+<body>
+    test
+    <a>네이버</a>
+    <a href="test">네이버</a>
+    <a href="https://www.naver.com">네이버</a>
+
+    <img id="photo" src="images/kevin.jpg" alt="">
+
+    <hr>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+    </ul>
+    <hr>
+
+    <label for="btn">기사 가리기</label> <input id="btn" type="checkbox">
+    <div id="article">
+        <h1>디즈니플러스, 한국 서비스 개시…"넷플릭스보다 싸다"</h1>
+        <p>세계 최대 콘텐츠 기업인 디즈니의 영상 스트리밍 서비스 디즈니플러스(디즈니+)가 오늘(12일) 0시부터 한국에서 공식 서비스를 시작했다.</p>
+    </div>
+
+    <hr>
+
+    <input><input disabled>
+
+    <hr>
+
+    <h3>반응 선택자</h3>
+
+    <hr>
+
+    <div>
+        <h1 id="head1">Header1 - 1</h1>
+        <h1>header1 - 2</h1>
+        <h2>header2 - 1</h2>
+        <h2>header2 - 2</h2>
+        <h2>header2 - 3</h2>
+        <h2>header2 - 4</h2>
+        <h2>header2 - 5</h2>
+    </div>
+
+    <hr>
+
+    <div id="header1">
+        <h1 class="title">제목입니다.</h1>
+        <div id="nav">
+            <h1>네비게이션</h1>
+        </div>
+    </div>
+    <div id="section">
+        <h1 class="title">제목2입니다.</h1>
+        <p>내용이 표현됩니다.</p>
+    </div>
+
+
+    <hr>
+
+    <input type="text"> <input type="password">
+
+
+    <hr>
+
+    <div id="header">
+        <h1 class="title">HEADER</h1>
+    </div>
+    <div id="contents">
+        <img src="images/kevin.jpg">
+    </div>
+    <div id="footer"></div>
+
+
+    <hr>
+
+    <h1 id="title">"갤로퍼 오마주"…전기차 기함 SUV 아이오닉 7 콘셉트 공개</h1>
+    <p class="bold">현대자동차는 미국 현지시간으로 17일, `2021 LA 오토쇼(2021 Los Angeles Auto Show, 이하 LA 오토쇼)`에서 전기 SUV 콘셉트카 세븐(SEVEN)을
+        처음 공개했다고 밝혔다.
+    </p>
+    <p class="bold1">세븐은 지난 2019년 45, 2020년 프로페시 콘셉트카에 이어 전용 전기차 브랜드 아이오닉의 세번째 도약을 알리는 콘셉트카이다.</p>
+    <h1>footer</h1>
+
+
+</body>
+
+</html>

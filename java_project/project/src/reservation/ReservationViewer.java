@@ -2,6 +2,8 @@ package reservation;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Scanner;
 
@@ -16,6 +18,14 @@ public class ReservationViewer {
 	ReservationDTO rDto = new ReservationDTO();
 	List<ReservationDTO> list = null;
 	Connection conn = null;
+	// 현재 날짜 구하기
+	LocalDateTime now = LocalDateTime.now();
+	// 포맷 정의
+	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy/MM/dd HH");
+	// 포맷 적용
+	String formatedNow = now.format(formatter);
+	String replaceTime = formatedNow.replace("/", "");
+	String sysDate = replaceTime.replace(" ", ""); // 현재시간 String 값으로 변환 -> pareInt로 숫자로 나중에
 
 	public ReservationViewer(Scanner scanner, BadInputController inputC) {
 		this.scanner = scanner;
@@ -60,21 +70,21 @@ public class ReservationViewer {
 		System.out.println("예약 등록 시스템 입니다.");
 
 		while (true) {
-		System.out.println("식당 예약을 하시겠습니까? Y/N ");
-		String yesNo = scanner.nextLine();
+			System.out.println("식당 예약을 하시겠습니까? Y/N ");
+			String yesNo = scanner.nextLine();
 
 			if (yesNo.equalsIgnoreCase("y")) {
 				String date = inputC.validInputEntranceTime("예약하고자 하는 날짜와 시간을 입력해주세요. (예: 21-04-30 22)");
 
-				String name = inputC.checkStr("예약자 성함을 입력해주세요.");
+				String rName = inputC.checkStr("예약자 성함을 입력해주세요.");
 
-				String phoneNumber = inputC.checkPhoneNum("연락처를 입력해주세요. (예: 010-0000-0000)");
+				String rPhoneNumber = inputC.checkPhoneNum("연락처를 입력해주세요. (예: 010-0000-0000)");
 
 				int count = inputC.checkUserChoice("예약 총 인원 수를 입력해주세요. (최대 5명까지 예약가능)", 1, 5);
 
 				int tid = inputC.checkUserChoice("원하시는 테이블 번호를 입력헤주세요. (1번 ~ 5번)", 1, 5);
 
-				while (avail(date, tid)) {
+				while (avail(date, tid, sysDate)) {
 					System.out.println(date + "시에 " + tid + "번 테이블은 예약 불가합니다.");
 					System.out.println("날짜 및 테이블 번호를 다시 입력해주세요.");
 					System.out.println();
@@ -83,7 +93,7 @@ public class ReservationViewer {
 					tid = inputC.checkUserChoice("원하시는 테이블 번호를 입력헤주세요. (1번 ~ 5번)", 1, 5);
 				}
 
-				rDto = new ReservationDTO(date, name, phoneNumber, count, tid);
+				rDto = new ReservationDTO(date, rName, rPhoneNumber, count, tid);
 
 				int insert = rDao.insert(conn, rDto);
 				if (insert > 0) {
@@ -125,7 +135,7 @@ public class ReservationViewer {
 
 					int tid = inputC.checkUserChoice("원하시는 테이블 번호를 입력헤주세요. (1번 ~ 5번)", 1, 5);
 
-					while (avail(rDate, tid)) {
+					while (avail(rDate, tid, sysDate)) {
 						System.out.println(rDate + "시에 " + tid + "번 테이블은 예약 불가합니다.");
 						System.out.println("날짜 또는 테이블 번호를 변경해주세요.");
 						System.out.println();
@@ -221,7 +231,7 @@ public class ReservationViewer {
 		}
 	}
 
-	boolean avail(String date, int tid) {
+	boolean avail(String date, int tid, String sysDate) {
 		list = rDao.show(conn);
 
 		String rDate = "";
@@ -230,7 +240,8 @@ public class ReservationViewer {
 		for (int i = 0; i < list.size(); i++) {
 			rDate = list.get(i).getRdate();
 
-			if (rDate.equals(date) && list.get(i).getTid() == tid) {
+			if ((rDate.equals(date) && list.get(i).getTid() == tid)
+					|| Integer.parseInt(date.replace("-", "").replace(" ", "")) < Integer.parseInt(sysDate)) {
 				b = true;
 			}
 		}

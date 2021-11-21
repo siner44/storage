@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <title>박스 속성</title>
 
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
         }
@@ -19,7 +20,7 @@
             margin: 20px;
         }
 
-        #box2{
+        #box2 {
             width: 100px;
             height: 100px;
             background-color: yellow;
@@ -27,23 +28,24 @@
             border-top-width: 5px;
             border-top-color: tomato;
             border-top-style: double;
-            
-            border:5px double tomato;
+
+            border: 5px double tomato;
 
             border-radius: 50px 15px;
             background-image: url(images/신짱구.png);
             background-size: 100%;
         }
 
-        #box{
+        #box {
             background-color: turquoise;
             width: 100px;
             height: 100px;
-            
-            display: inline-block; /*none, block, inlineblock*/
+
+            display: inline-block;
+            /*none, block, inlineblock*/
         }
 
-        body{
+        body {
             background-image: url(images/도라에몽.jpg);
             background-size: 100px;
             background-repeat: no-repeat;
@@ -51,22 +53,37 @@
             /* background-position: 100px 100px; */
             background-position: bottom right;
         }
+
+        #circle {
+            width: 100px;
+            height: 100px;
+
+            background-color: rgb(234, 23, 241);
+            border: 3px solid blue;
+            border-radius: 50%;
+
+            background-image: url(images/도라에몽.jpg);
+            background-size: contain;
+        }
     </style>
 </head>
-<body>
 
-<span style="background-color: tomato;">더미 객체</span>
-<div id="box">대상 객체</div>
-<span style="background-color: tomato;">더미 객체</span>
+<body>
+    <div id="circle">도라에몽</div>
+
+    <span style="background-color: tomato;">더미 객체</span>
+    <div id="box">대상 객체</div>
+    <span style="background-color: tomato;">더미 객체</span>
 
     <hr>
     <div id="box1">
         box
     </div>
-    
+
     <div id="box2">
         box
     </div>
 
 </body>
+
 </html>

@@ -1,0 +1,41 @@
+#wrap{
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    background-color: rgb(239, 242, 245);
+}
+
+#logo{
+    color: rgb(17, 172, 17);
+    font-size: 55px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+#input{
+    margin-top: 10%;
+    width: 350px;
+    /* background-color: grey; */
+    line-height: 150%;
+}
+
+.btn{
+    width: 343px;
+    height: 40px;
+    margin: 3px;
+    background-color: rgb(17, 172, 17);
+    border: none;
+    color: white;
+}
+
+#username{
+    width: 335px;
+    height: 30px;
+    margin: 3px;
+}
+
+#pw{
+    width: 335px;
+    height: 30px;
+    margin: 3px;
+}

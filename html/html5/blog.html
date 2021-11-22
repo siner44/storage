@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>blog</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@100;400&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        body {
+            background-color: #EEE;
+        }
+
+        .font_gray {
+            color: #666;
+        }
+
+        .margin_tb_5 {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .lineheight_180per {
+            line-height: 180%;
+        }
+
+        .title_font {
+
+            font-family: 'Jua', sans-serif;
+        }
+
+        #main_wrap {
+            background-color: white;
+
+            width: 778px;
+
+            padding: 10px;
+
+            border: 1px solid #aaa;
+            border-radius: 5px;
+
+            margin: 10px auto;
+            box-shadow: 3px 3px 10px #ccc;
+        }
+
+        header {
+            padding: 30px;
+        }
+
+        nav {
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+
+            overflow: hidden;
+        }
+
+
+
+        nav>ul {
+            float: left;
+            list-style: none;
+        }
+
+        nav>ul>li {
+            float: left;
+            padding: 5px 15px;
+        }
+
+        nav>div {
+            float: right;
+        }
+
+        nav input {
+            border: 1px solid #ccc;
+            padding: 3px 20px;
+
+            margin-top: 3px;
+        }
+
+        nav input[type=text] {
+            width: 100px;
+            border-radius: 20px 0 0 20px;
+        }
+
+        nav input[type="button"] {
+            border-radius: 0 20px 20px 0;
+
+            margin-left: -1px;
+            margin-right: 5px;
+        }
+
+        #contents_wrap {
+            overflow: hidden;
+        }
+
+        #contents_wrap>section {
+            width: 600px;
+            float: left;
+        }
+
+        #contents_wrap>aside {
+            width: 170px;
+            float: right;
+        }
+
+        #contents_wrap>section>article {
+            padding: 25px;
+
+            border-bottom: 1px solid #ccc;
+
+        }
+
+
+        #contents_wrap>section>article>img {
+            width: 500px;
+        }
+
+        #contents_wrap>aside>h3 {
+            margin-top: 30px;
+        }
+
+        #contents_wrap>aside>ul>li {
+            list-style: none;
+            padding-left: 10px;
+        }
+
+        footer {
+            height: 30px;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main_wrap">
+
+        <header>
+            <h1 class="title_font">HTML5 Example Preview</h1>
+            <p class="font_gray">한빛아카데미</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript</li>
+            </ul>
+            <div>
+                <input type="text"><input type="button" value="검색">
+            </div>
+        </nav>
+
+        <div id="contents_wrap">
+            <section>
+
+                <article>
+                    <h3 class="title_font margin_tb_5">‘한국형 인공태양’ 세계최장 30초 간 불 밝혔다</h3>
+                    <div class="margin_tb_5">2021.11.22. 오후 2:34</div>
+                    <img src="http://placehold.it/300x200" class="margin_tb_5">
+                    <p class="margin_tb_5 lineheight_180per">'한국형 인공태양'으로 불리는 'KSTAR'가 핵융합에 필요한 1억도 초고온 플라즈마를 30초간 유지하는
+                        데 성공했다. 지난해 20초 연속 운전에 성공한 데 이어 1년
+                        만에
+                        10초
+                        가량 운전 시간을 늘려 장기간 기록을 경신하게 됐다.
+
+                        한국핵융합에너지연구원은 지난 4월부터 10월까지 7개월 간 진행된 KSTAR 플라즈마 실험에서 핵융합 핵심 조건인 1억도 초고온 플라즈마 운전을 30초 간 유지했다고
+                        22일
+                        밝혔다.
+
+                        핵융합에너지는 태양에너지의 원리인 핵융합 반응을 통해 에너지를 발생시키는 것으로, 초고온·고밀도 상태인 태양에서 일어나는 핵융합 반응을 지구에서 구현하려면 핵융합
+                        연구장치에
+                        연료(중수소, 삼중수소)를 넣고 이온 핵과 전자가 분리돼 있는 플라즈마 상태를 만든 뒤 1억도 이상의 초고온으로 가열·유지해야 한다.</p>
+                </article>
+
+                <article>
+                    <h3 class="title_font margin_tb_5">‘한국형 인공태양’ 세계최장 30초 간 불 밝혔다</h3>
+                    <div class="margin_tb_5">2021.11.22. 오후 2:34</div>
+                    <img src="http://placehold.it/300x200" class="margin_tb_5">
+                    <p class="margin_tb_5 lineheight_180per">'한국형 인공태양'으로 불리는 'KSTAR'가 핵융합에 필요한 1억도 초고온 플라즈마를 30초간 유지하는
+                        데 성공했다. 지난해 20초 연속 운전에 성공한 데 이어 1년
+                        만에
+                        10초
+                        가량 운전 시간을 늘려 장기간 기록을 경신하게 됐다.
+
+                        한국핵융합에너지연구원은 지난 4월부터 10월까지 7개월 간 진행된 KSTAR 플라즈마 실험에서 핵융합 핵심 조건인 1억도 초고온 플라즈마 운전을 30초 간 유지했다고
+                        22일
+                        밝혔다.
+
+                        핵융합에너지는 태양에너지의 원리인 핵융합 반응을 통해 에너지를 발생시키는 것으로, 초고온·고밀도 상태인 태양에서 일어나는 핵융합 반응을 지구에서 구현하려면 핵융합
+                        연구장치에
+                        연료(중수소, 삼중수소)를 넣고 이온 핵과 전자가 분리돼 있는 플라즈마 상태를 만든 뒤 1억도 이상의 초고온으로 가열·유지해야 한다.</p>
+                </article>
+            </section>
+
+            <aside>
+                <h4>카테고리</h4>
+                <ul>
+                    <li>메뉴1</li>
+                    <li>메뉴2</li>
+                    <li>메뉴3</li>
+                    <li>메뉴4</li>
+                    <li>메뉴5</li>
+                </ul>
+
+                <h4>최근 글</h4>
+                <ul>
+                    <li>글1</li>
+                    <li>글2</li>
+                    <li>글3</li>
+                    <li>글4</li>
+                </ul>
+            </aside>
+        </div>
+
+        <footer>SIN Blog</footer>
+
+    </div>
+
+
+</body>
+
+</html>

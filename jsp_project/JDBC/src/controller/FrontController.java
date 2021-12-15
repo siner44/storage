@@ -15,8 +15,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import service.BadRequestCommandImpl;
-import service.Command;
+import dept.service.BadRequestCommandImpl;
+import dept.service.Command;
 
 public class FrontController extends HttpServlet  {
 	
@@ -155,7 +155,22 @@ public class FrontController extends HttpServlet  {
 		
 		// 5.  view 페이지를 지정(선택) -> 포워딩
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
-		dispatcher.forward(request, response);	
+		dispatcher.forward(request, response);
+		
+		
+		
+		
+		
+		
+		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

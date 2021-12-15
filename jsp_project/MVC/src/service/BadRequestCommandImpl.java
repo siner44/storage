@@ -8,7 +8,7 @@ public class BadRequestCommandImpl implements Command {
 	@Override
 	public String getPage(HttpServletRequest request, HttpServletResponse response) {
 		
-		System.out.println("BadRequestCommand 진입");
+		System.out.println("BadRequestCommandImpl 진입");
 		
 		// 사용자 요청 처리
 		// JDBC, 데이터 분석, 다른 서버의 API 처리
@@ -17,10 +17,10 @@ public class BadRequestCommandImpl implements Command {
 		// 결과 데이터를 request 속성에 저장
 		request.setAttribute("result", str);
 		
-		// view 지정 
+		// View 지정
 		String viewPage = "/WEB-INF/views/simpleview.jsp";
 		
-		return viewPage; // viewPage 경로를 반환
+		return viewPage; // viewPage 결로를 반환
 	}
 
 }

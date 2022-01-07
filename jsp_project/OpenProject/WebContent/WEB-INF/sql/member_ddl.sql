@@ -8,3 +8,5 @@ CREATE TABLE `project`.`member` (
   PRIMARY KEY (`idx`),
   UNIQUE KEY `id_UNIQUE` (`userid`)
 );
+
+drop table project.member;

@@ -13,4 +13,5 @@ public class MemberLogoutController {
 		session.invalidate();
 		return "redirect:/";
 	}
+
 }

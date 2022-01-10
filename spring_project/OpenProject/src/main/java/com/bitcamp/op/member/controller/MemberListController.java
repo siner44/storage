@@ -14,11 +14,18 @@ import com.bitcamp.op.member.service.MemberListService;
 public class MemberListController {
 	
 	@Autowired
-	MemberListService listService;
+	private MemberListService listService;
 	
 	@RequestMapping("/member/manager/list")
-	public void getListPage(@RequestParam(value = "p", defaultValue = "1") int pageNumber, Model model) throws SQLException {
+	public void getListPage(
+			@RequestParam(value = "p", defaultValue = "1") int pageNumber,
+			Model model
+			) throws SQLException {
+		
 		model.addAttribute("listView", listService.getPageView(pageNumber));
+		
 	}
 	
+	
+
 }

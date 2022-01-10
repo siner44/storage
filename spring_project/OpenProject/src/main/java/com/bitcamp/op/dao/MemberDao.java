@@ -8,13 +8,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
-
 import com.bitcamp.op.jdbc.JdbcUtil;
 import com.bitcamp.op.member.domain.Member;
 import com.bitcamp.op.member.domain.MemberRegRequest;
 
-@Repository
 public class MemberDao {
 
 	// Connection 객체, Member 객체를 전달 받아 데이터베이스에 데이터 입력
@@ -41,7 +38,7 @@ public class MemberDao {
 
 		return resultCnt;
 	}
-
+	
 	public int selectTotalCount(Connection conn) throws SQLException {
 
 		int totalCount = 0;
@@ -65,7 +62,8 @@ public class MemberDao {
 
 		return totalCount;
 	}
-
+	
+	
 	public List<Member> selectList(Connection conn, int index, int count) throws SQLException {
 
 		List<Member> list = new ArrayList<Member>();
@@ -83,13 +81,6 @@ public class MemberDao {
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-//				Member member = new Member(
-//						rs.getInt("index"), 
-//						rs.getString("userid"), 
-//						rs.getString("password"), 
-//						rs.getString("username"), 
-//						rs.getString("regdate"), 
-//						rs.getString("photo")); 
 				list.add(getMember(rs));
 			}
 		} finally {
@@ -99,16 +90,23 @@ public class MemberDao {
 
 		return list;
 	}
-
+	
+	
 	private Member getMember(ResultSet rs) throws SQLException {
 		return new Member(
-				rs.getInt("idx"), 
-				rs.getString("userid"), 
-				rs.getString("password"), 
-				rs.getString("username"),
-				rs.getString("photo"),
-		        rs.getString("regdate"));
+			rs.getInt("idx"), 
+			rs.getString("userid"), 
+			rs.getString("password"), 
+			rs.getString("username"),
+			rs.getString("photo"), 
+			rs.getString("regdate"));
 	}
+	
+	
+	
+	
+	
+	
 
 	// 로그인 처리를 위한 select 메소드
 	public Member selectByIdPw(Connection conn, String userId, String pw) throws SQLException {
@@ -128,12 +126,6 @@ public class MemberDao {
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-//				member = new Member(rs.getInt("idx"), // 1
-//						rs.getString("userid"), // 2
-//						rs.getString("password"), // 3
-//						rs.getString("username"), // 4
-//						rs.getString("regdate"), // 6
-//						rs.getString("photo")); // 5
 				member = getMember(rs);
 			}
 
@@ -144,7 +136,7 @@ public class MemberDao {
 
 		return member;
 	}
-
+	
 	public Member selectByIdx(Connection conn, int idx) throws SQLException {
 
 		Member member = null;
@@ -171,6 +163,13 @@ public class MemberDao {
 		return member;
 	}
 	
+	
+	
+	
+	
+	
+	
+
 //	public Member selectById(Connection conn, String userId) throws SQLException {
 //
 //		Member member = null;
@@ -203,6 +202,12 @@ public class MemberDao {
 //
 //		return member;
 //	}
+
+
+
+
+
+
 
 
 

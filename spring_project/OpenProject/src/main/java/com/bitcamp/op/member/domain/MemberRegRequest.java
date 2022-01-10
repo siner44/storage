@@ -4,6 +4,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class MemberRegRequest {
 
+	private int idx;
 	private String userid;
 	private String pw;
 	private String username;
@@ -50,12 +51,18 @@ public class MemberRegRequest {
 		this.fileName = fileName;
 	}
 
-	@Override
-	public String toString() {
-		return "MemberRegRequest [userid=" + userid + ", pw=" + pw + ", username=" + username + ", photo=" + photo.getOriginalFilename()
-				+ ", fileName=" + fileName + "]";
+	public int getIdx() {
+		return idx;
 	}
 
+	public void setIdx(int idx) {
+		this.idx = idx;
+	}
 
+	@Override
+	public String toString() {
+		return "MemberRegRequest [userid=" + userid + ", pw=" + pw + ", username=" + username + ", photo="
+				+ photo.getOriginalFilename() + ", fileName=" + fileName + "]";
+	}
 
 }

@@ -2,15 +2,15 @@ package com.bitcamp.op.member.domain;
 
 import java.util.List;
 
-public class ListPageVIew {
-	
+public class ListPageView {
+
 	private int totalCount;
 	private int currentPage;
 	private int countPerPage;
 	private List<Member> list;
 	private int pageTotalCount;
-	
-	public ListPageVIew(int totalCount, int currentPage, int countPerPage, List<Member> list) {
+
+	public ListPageView(int totalCount, int currentPage, int countPerPage, List<Member> list) {
 		this.totalCount = totalCount;
 		this.currentPage = currentPage;
 		this.countPerPage = countPerPage;
@@ -20,7 +20,7 @@ public class ListPageVIew {
 
 	private void calTotalCount() {
 		pageTotalCount = totalCount / countPerPage;
-		pageTotalCount = totalCount%countPerPage>0 ? pageTotalCount++ : pageTotalCount;
+		pageTotalCount = totalCount % countPerPage > 0 ? pageTotalCount++ : pageTotalCount;
 	}
 
 	public int getTotalCount() {
@@ -65,10 +65,8 @@ public class ListPageVIew {
 
 	@Override
 	public String toString() {
-		return "ListPageVIew [totalCount=" + totalCount + ", currentPage=" + currentPage + ", countPerPage="
+		return "ListPageView [totalCount=" + totalCount + ", currentPage=" + currentPage + ", countPerPage="
 				+ countPerPage + ", list=" + list + ", pageTotalCount=" + pageTotalCount + "]";
 	}
-	
-	
-	
+
 }

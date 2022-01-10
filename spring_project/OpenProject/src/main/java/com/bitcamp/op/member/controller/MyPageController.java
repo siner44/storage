@@ -16,10 +16,13 @@ import com.bitcamp.op.member.service.MemberMyPageService;
 public class MyPageController {
 	
 	@Autowired
-	private MemberMyPageService myPageService;	
-	
+	private MemberMyPageService myPageService;
+
 	@RequestMapping("/mypage")
-	public void getMyPage(HttpSession session, Model model) throws SQLException {
+	public void getMyPage(
+			HttpSession session,
+			Model model
+			) throws SQLException {
 		model.addAttribute("member", myPageService.getMember(session));
 	}
 	

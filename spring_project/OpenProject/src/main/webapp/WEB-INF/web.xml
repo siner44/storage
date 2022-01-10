@@ -31,7 +31,7 @@
 	</servlet-mapping>
 	
 	<!-- 데이터 베이스 드라이버 로드 -->
-	<servlet>
+<!-- 	<servlet>
 		<servlet-name>DriverLoader</servlet-name>
 		<servlet-class>com.bitcamp.op.jdbc.DriverLoader</servlet-class>
 		<init-param>
@@ -39,7 +39,7 @@
 			<param-value>com.mysql.cj.jdbc.Driver</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
-	</servlet>
+	</servlet> -->
 
 	<!-- 한글 처리를 위한 EncodingFilter 설정 -->
 	<filter>

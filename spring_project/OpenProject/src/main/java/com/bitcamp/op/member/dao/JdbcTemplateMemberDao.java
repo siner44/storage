@@ -1,4 +1,4 @@
-package com.bitcamp.op.dao;
+package com.bitcamp.op.member.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -67,7 +67,7 @@ public class JdbcTemplateMemberDao {
 		KeyHolder keyHolder = new GeneratedKeyHolder();
 		
 		int resultCnt = template.update(new PreparedStatementCreator() {
-			
+			 
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
 				
@@ -90,6 +90,11 @@ public class JdbcTemplateMemberDao {
 		
 	}
 	
+	
+	
+	
+	
+	
 	// MyPage 를 위한 Member 객체를 구하는 Select
 	public Member selectByIdx(int idx) {
 		String sql = "select * from member where idx=?";	
@@ -97,4 +102,7 @@ public class JdbcTemplateMemberDao {
 		return members.isEmpty() ? null : members.get(0);
 	}
 	
+	
+	
+
 }

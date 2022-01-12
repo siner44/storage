@@ -63,4 +63,6 @@ public class Member2 {
 				+ ", memberphoto=" + memberphoto + ", date=" + date + "]";
 	}
 	
+	
+
 }

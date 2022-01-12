@@ -40,7 +40,7 @@ public class MemberRegController {
 		model.addAttribute("result", regService.insertMember(regRequest, request));
 		
 		System.out.println("@Controller: idx => " + regRequest.getIdx());
-		// view 페이지의 idx
+		// view 페이지의 idx로 사용해서 redirect 처리 가능
 		
 	}
 

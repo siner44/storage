@@ -6,6 +6,15 @@ public class OrderItem {
 	private int number;
 	private String remark;
 	
+	public OrderItem(String itemId, int number, String remark) {
+		this.itemId = itemId;
+		this.number = number;
+		this.remark = remark;
+	}
+
+	public OrderItem() {
+	}
+	
 	public String getItemId() {
 		return itemId;
 	}

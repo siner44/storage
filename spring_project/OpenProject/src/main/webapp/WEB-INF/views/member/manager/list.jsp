@@ -133,8 +133,8 @@
 							<td>${member.username}</td>
 							<td>${member.photo}</td>
 							<td>${member.regdate}</td>
-							<td><a href="edit?idx=${member.idx}">수정</a> <a
-								href="javascript:delMember(${member.idx})">삭제</a></td>
+							<td><a href="edit?idx=${member.idx}">수정</a>
+							 <a href="javascript:delMember(${member.idx})">삭제</a></td>
 						</tr>
 					</c:forEach>
 

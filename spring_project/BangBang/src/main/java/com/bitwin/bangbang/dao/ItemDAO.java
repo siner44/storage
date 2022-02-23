@@ -1,0 +1,28 @@
+package com.bitwin.bangbang.dao;
+
+import java.util.List;
+import java.util.Map;
+
+import com.bitwin.bangbang.domain.Item;
+import com.bitwin.bangbang.domain.SearchParams;
+
+public interface ItemDAO {
+	
+	// 상품 등록
+	public void create(Item item);
+	
+	// 상품 불러오기
+	public Item read(int iidx);
+
+	// 상품 수정
+	public void update(Item item);
+
+	// 상품 삭제
+	public void delete(int iidx);
+	
+	// 상품 목록
+	public List<Item> selectList(SearchParams params);
+	
+	public int selectTotalCount(Map<String, String> params);
+		
+}

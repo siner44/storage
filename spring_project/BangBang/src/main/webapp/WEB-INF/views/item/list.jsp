@@ -31,7 +31,7 @@
 			</fieldset>
 		</form>
 	</div>
-	<div class="border mt-3 p-2">전체 상품 수: ${item.totalCount}명 ,
+	<div class="border mt-3 p-2">전체 상품 수: ${item.totalCount}개 ,
 				현재 페이지: ${item.currentPage}/${item.pageTotalCount}</div>
 	
 	<div class="notice margin-top">

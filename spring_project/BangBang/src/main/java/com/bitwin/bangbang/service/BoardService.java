@@ -83,7 +83,10 @@ public class BoardService {
 
 	// 게시물 읽어오기
 	public Board read(int iidx) {
-		return template.getMapper(BoardDAO.class).read(iidx);
+		
+		Board board = template.getMapper(BoardDAO.class).read(iidx);
+		
+		return board;
 	}
 
 	// 게시물 수정

@@ -107,6 +107,7 @@
 		<div style="width:10px;"></div>
 		
         <a class="btn btn-sm btn-outline-secondary" href="#">로그인</a> 
+        <a class="btn btn-sm btn-outline-secondary" href="${pageContext.request.contextPath}/index">관리</a> 
       </div>
     </div>
   </header>

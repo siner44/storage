@@ -29,13 +29,12 @@ public class ItemController {
 	@RequestMapping(value = "insert", method = RequestMethod.POST)
 	public String insert(@ModelAttribute Item item) {
 		
-		int discount = 0;
 		String sprice = item.getSprice().replaceAll("[^\\d]*", "");
 		String oprice = item.getOprice().replaceAll("[^\\d]*", "");
 		
-		discount = 100-(Integer.parseInt(sprice)*100/Integer.parseInt(oprice));
+		item.setSprice(sprice);
+		item.setOprice(oprice);
 		
-		item.setDiscount(discount);
 		itemService.create(item);
 		return "redirect:list";
 	}

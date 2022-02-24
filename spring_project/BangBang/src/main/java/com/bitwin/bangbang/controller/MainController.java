@@ -13,15 +13,15 @@ import lombok.AllArgsConstructor;
  * Handles requests for the application home page.
  */
 @Controller
-@RequestMapping("/*")
+@RequestMapping("/index")
 @AllArgsConstructor
 public class MainController {
 	
 	
 	@GetMapping
-	public void mainpage() {
+	public String menu() {
 		
-
+		return "index";
 		
 	}
 	

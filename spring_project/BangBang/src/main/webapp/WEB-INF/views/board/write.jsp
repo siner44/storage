@@ -46,10 +46,10 @@
 								<td><label for="scent" class="col-sm-2 col-form-label">${item.scent}</label></td>
 							</tr>
 							<tr>
-								<th>원가</th>
-								<td><label for="oprice" class="col-sm-2 col-form-label">${item.oprice}</label></td>
 								<th>판매가</th>
-								<td><label for="sprice" class="col-sm-2 col-form-label">${item.sprice}</label></td>
+								<td><label for="oprice" class="col-sm-2 col-form-label">${item.sprice}</label></td>
+								<th>할인가</th>
+								<td><label for="sprice" class="col-sm-2 col-form-label">${item.price}</label></td>
 							</tr>
 							<tr>
 								<th>할인율</th>

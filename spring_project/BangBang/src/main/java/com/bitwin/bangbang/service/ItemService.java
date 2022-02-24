@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.bitwin.bangbang.dao.ItemDAO;
 import com.bitwin.bangbang.domain.Item;
+import com.bitwin.bangbang.domain.ItemRead;
 import com.bitwin.bangbang.domain.ListPageView;
 import com.bitwin.bangbang.domain.SearchParams;
 
@@ -32,8 +33,13 @@ public class ItemService {
 
 	}
 
-	public Item read(int iidx) {
-		return template.getMapper(ItemDAO.class).read(iidx);
+	public ItemRead read(int iidx) {
+		ItemRead item = template.getMapper(ItemDAO.class).read(iidx);
+		int sprice = Integer.parseInt(item.getSprice());
+		int price = (int) (sprice*(1-((double)item.getDiscount()/100)));
+		item.setPrice(price);
+		
+		return item;
 	}
 
 	public void update(Item item) {
@@ -71,7 +77,7 @@ public class ItemService {
 		params.setIndex(index);
 		params.setCount(CountPerPage);
 
-		List<Item> list = dao.selectList(params);
+		List<ItemRead> list = dao.selectList(params);
 
 		view = new ListPageView(totalCount, currentPage, CountPerPage, list);
 

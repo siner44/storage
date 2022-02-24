@@ -7,10 +7,10 @@ public class ListPageView {
 	private int totalCount;
 	private int currentPage;
 	private int countPerPage;
-	private List<Item> list;
+	private List<ItemRead> list;
 	private int pageTotalCount;
 
-	public ListPageView(int totalCount, int currentPage, int countPerPage,List<Item> list) {
+	public ListPageView(int totalCount, int currentPage, int countPerPage,List<ItemRead> list) {
 		this.totalCount = totalCount;
 		this.currentPage = currentPage;
 		this.countPerPage = countPerPage;
@@ -47,11 +47,11 @@ public class ListPageView {
 		this.countPerPage = countPerPage;
 	}
 
-	public List<Item> getList() {
+	public List<ItemRead> getList() {
 		return list;
 	}
 
-	public void setList(List<Item> list) {
+	public void setList(List<ItemRead> list) {
 		this.list = list;
 	}
 

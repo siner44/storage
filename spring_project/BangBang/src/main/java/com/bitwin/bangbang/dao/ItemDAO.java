@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.bitwin.bangbang.domain.Item;
+import com.bitwin.bangbang.domain.ItemRead;
 import com.bitwin.bangbang.domain.SearchParams;
 
 public interface ItemDAO {
@@ -12,7 +13,7 @@ public interface ItemDAO {
 	public void create(Item item);
 	
 	// 상품 불러오기
-	public Item read(int iidx);
+	public ItemRead read(int iidx);
 
 	// 상품 수정
 	public void update(Item item);
@@ -21,7 +22,7 @@ public interface ItemDAO {
 	public void delete(int iidx);
 	
 	// 상품 목록
-	public List<Item> selectList(SearchParams params);
+	public List<ItemRead> selectList(SearchParams params);
 	
 	public int selectTotalCount(Map<String, String> params);
 		

@@ -62,6 +62,10 @@
 					<td class="text-align-left text-indent text-strong text-orange" colspan="3"><input type="text" name="sprice" placeholder="판매가를 입력해주세요." /></td>
 				</tr>
 				<tr>
+					<th>할인율</th>
+					<td class="text-align-left text-indent text-strong text-orange" colspan="3"><input type="text" name="discount" placeholder="할인율을 입력해주세요." /></td>
+				</tr>
+				<tr>
 					<th>재고</th>
 					<td class="text-align-left text-indent text-strong text-orange" colspan="3"><input type="text" name="qty" placeholder="재고를 입력해주세요." /></td>
 				</tr>

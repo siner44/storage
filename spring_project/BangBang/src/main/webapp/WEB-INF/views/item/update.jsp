@@ -51,11 +51,20 @@
 				</tr>
 				<tr>
 					<td>맛</td>
-					<td><input type="text" name="taste" value="${item.taste}"></td>
+					<td class="text-align-left text-indent text-strong text-orange" colspan="3">
+					<label></label><input type="checkbox" name="taste" value="달콤한" />달콤한</label>
+					<label></label><input type="checkbox" name="taste" value="씁쓸한" />씁쓸한</label>
+					<label></label><input type="checkbox" name="taste" value="깔끔한" />깔끔한</label>
+					</td>
 				</tr>
 				<tr>
 					<td>향</td>
-					<td><input type="text" name="scent" value="${item.scent}"></td>
+					<td class="text-align-left text-indent text-strong text-orange" colspan="3">
+					<label><input type="checkbox" name="scent" value="과일" />과일</label>
+					<label><input type="checkbox" name="scent" value="견과" />견과</label>
+					<label><input type="checkbox" name="scent" value="꽃" />꽃</label>
+					<label><input type="checkbox" name="scent" value="기타" />기타</label>
+					</td>
 				</tr>
 				<tr>
 					<td>원가</td>

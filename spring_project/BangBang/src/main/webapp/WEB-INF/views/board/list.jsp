@@ -65,6 +65,7 @@
                 <div class="btn-group">
                   <a href="${pageContext.request.contextPath}/board/detail?iidx=${list.iidx}"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
                   <a href="${pageContext.request.contextPath}/board/update?iidx=${list.iidx}"><button type="button" class="btn btn-sm btn-outline-secondary">Edit</button></a>
+                  <a href="${pageContext.request.contextPath}/board/delete?iidx=${list.iidx}"><button type="button" class="btn btn-sm btn-outline-secondary">delete</button></a>
                 </div>
                 <small class="text-muted">${list.hits}</small>
               </div>

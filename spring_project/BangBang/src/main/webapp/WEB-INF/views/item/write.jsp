@@ -47,11 +47,20 @@
 				</tr>
 				<tr>
 					<th>맛</th>
-					<td class="text-align-left text-indent text-strong text-orange" colspan="3"><input type="text" name="taste" placeholder="맛을 입력해주세요." /></td>
+					<td class="text-align-left text-indent text-strong text-orange" colspan="3">
+					<label></label><input type="checkbox" name="taste" value="달콤한" />달콤한</label>
+					<label></label><input type="checkbox" name="taste" value="씁쓸한" />씁쓸한</label>
+					<label></label><input type="checkbox" name="taste" value="깔끔한" />깔끔한</label>
+					</td>
 				</tr>
 				<tr>
 					<th>향</th>
-					<td class="text-align-left text-indent text-strong text-orange" colspan="3"><input type="text" name="scent" placeholder="향을 입력해주세요." /></td>
+					<td class="text-align-left text-indent text-strong text-orange" colspan="3">
+					<label><input type="checkbox" name="scent" value="과일" />과일</label>
+					<label><input type="checkbox" name="scent" value="견과" />견과</label>
+					<label><input type="checkbox" name="scent" value="꽃" />꽃</label>
+					<label><input type="checkbox" name="scent" value="기타" />기타</label>
+					</td>
 				</tr>
 				<tr>
 					<th>원가</th>

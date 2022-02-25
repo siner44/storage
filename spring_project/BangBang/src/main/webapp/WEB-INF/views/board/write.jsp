@@ -5,6 +5,7 @@
 	
 <%@include file="../includes/bangbang-nav.jsp"%>
 	
+	<script src="https://cdn.ckeditor.com/ckeditor5/29.1.0/classic/ckeditor.js"></script>
 	<main role="main" class="container">
 		<div class="my-3 p-3 bg-white rounded shadow-sm ">
 			<h3>판매 게시물 등록</h3>
@@ -126,14 +127,11 @@
 					<div id="col-sm-10">
 						<textarea id="content" name="content" ></textarea>
 						<script>
-						var ckeditor_config = {
-   						resize_enaleb : false,
-   						enterMode : CKEDITOR.ENTER_BR,
-   						shiftEnterMode : CKEDITOR.ENTER_P,
-   						filebrowserUploadUrl : "/uploadfile"
- 						};
- 
-						CKEDITOR.replace("content", ckeditor_config);
+						ClassicEditor
+			            .create( document.querySelector( '#content' ))
+			            .catch( error => {
+			                console.error( error );
+			            } );
 						</script>
 					</div>
 				</div>

@@ -28,36 +28,35 @@
 <%@include file="../includes/bangbang-nav.jsp"%>
 <main>
 	<script>
-		function reviewList() {
-			var iidx = ${item.iidx};
-			$.getJSON("${pageContext.request.contextPath}/board/detail/review-list"+ "?iidx=" + iidx, function(data) {
-				var str = "";
-
-				$(data).each(function() {
-
-					console.log(data);
-
-					var date = new Date(this.date);
-					date = date.toLocaleDateString("ko-US")
-
-					str += "<li data-iidx='" + this.iidx + "'>"
-					+ "<div class='userInfo'>"
-					+ "<span class='userName'>"+ this.userName + "</span>"
-					+ "<span class='rating'>"+ this.rating + "</span>"
-					+ "<span class='date'>"+ date + "</span>"
-					+ "</div>"
-					+ "<div class='content'>"+ this.content + "</div>"
-					
-					+ "<div class='reviewFooter'>"
-					+ "<button type='button' class='update' data-iidx='" + this.iidx + "'>수정</button>"
-					+ "<button type='button' class='delete' data-iidx='" + this.iidx + "'>삭제</button>"
-					+ "</div>"
-					+ "</li>";
-				});
-
-				$("section.reviewList ol").html(str);
+	function reviewList() {
+		var iidx = ${item.iidx};
+		$.getJSON("${pageContext.request.contextPath}/board/detail/review-list"+ "?iidx=" + iidx, function(data) {
+			var str = "";
+			$(data).each(function() {
+				
+				console.log(data);
+				
+				var date = new Date(this.date);
+				date = date.toLocaleDateString("ko-US")
+				
+				str += "<li data-iidx='" + this.iidx + "'>"
+				+ "<div class='userInfo'>"
+				+ "<span class='userName'>"+ this.userName + "</span>"
+				+ "<span class='rating'>"+ this.rating + "</span>"
+				+ "<span class='date'>"+ date + "</span>"
+				+ "</div>"
+				+ "<div class='content'>"+ this.content + "</div>"
+				
+				+ "<div class='reviewFooter'>"
+				+ "<button type='button' class='update' data-iidx='" + this.iidx + "'>수정</button>"
+				+ "<button type='button' class='delete' data-iidx='" + this.iidx + "'>삭제</button>"
+				+ "</div>"
+				+ "</li>";
 			});
-		}
+			$("section.reviewList ol").html(str);
+		});
+	}
+		
 	</script>
 	<section class="py-5">
 		<div class="container px-4 px-lg-5 my-5">

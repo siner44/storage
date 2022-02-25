@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.bitwin.bangbang.domain.Item;
 import com.bitwin.bangbang.domain.ItemRead;
+import com.bitwin.bangbang.domain.OrderItemInfo;
 import com.bitwin.bangbang.domain.SearchParams;
 
 public interface ItemDAO {
@@ -25,5 +26,6 @@ public interface ItemDAO {
 	public List<ItemRead> selectList(SearchParams params);
 	
 	public int selectTotalCount(Map<String, String> params);
+	
 		
 }

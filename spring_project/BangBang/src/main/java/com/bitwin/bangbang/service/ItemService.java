@@ -85,5 +85,9 @@ public class ItemService {
 		return view;
 	}
 	
+	public OrderItemInfo orderItemInfo(int iidx) {
+		return template.getMapper(ItemDAO.class).orderItemInfo(iidx);
+		
+	}
 	
 }

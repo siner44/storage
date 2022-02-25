@@ -91,6 +91,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	</update>
 	
-
+	<select id="orderItemInfo" resultType="com.bitwin.bangbang.domain.OrderItemInfo">
+		select name, sprice, discount from item where iidx = #{iidx}
+	</select>
 	
 </mapper>

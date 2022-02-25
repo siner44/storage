@@ -27,5 +27,5 @@ public interface ItemDAO {
 	
 	public int selectTotalCount(Map<String, String> params);
 	
-		
+	public OrderItemInfo orderItemInfo(int iidx);
 }

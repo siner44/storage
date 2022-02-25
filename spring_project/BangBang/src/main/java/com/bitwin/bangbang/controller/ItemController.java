@@ -64,4 +64,9 @@ public class ItemController {
 		return "redirect:list";
 	}
 	
+	public void orderItemInfo(@RequestParam("iidx") int iidx) {
+		itemService.orderItemInfo(iidx);
+	}
+
+	
 }

@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -61,6 +62,13 @@ public class BoardController {
 
 	}
 	
+	@RequestMapping("list")
+	public void getListPage(SearchParams params, Model model, @RequestParam("type") String type) throws SQLException {
+		model.addAttribute("board", boardService.getPageView(params));
+		params.setKeyword(type);
+		
+	}
+	
 	@RequestMapping("detail")
 	public void getPage(@RequestParam("iidx") int iidx, Model model) {
 		boardService.hits(iidx);
@@ -96,49 +104,57 @@ public class BoardController {
 		return review;
 	}
 	
-	// 회원 연결 수정필요
 	@ResponseBody
 	@RequestMapping(value = "/detail/review-reg", method = RequestMethod.POST)
-	public void write(Review review) throws Exception {
-		review.setUidx(1);
-	 reviewService.create(review);
+	public void write(Review review, HttpSession session) throws Exception {
+		
+		// Member member = (Member)session.getAttribute("member");
+		// review.setUidx(member.getUserId());
+		
+		reviewService.create(review);
 	} 
 	
-	// 회원 연결 수정필요 및 ajax 수정
 	@ResponseBody
 	@RequestMapping(value = "/detail/review-del", method = RequestMethod.POST)
-	public int deleteReview(Review review) throws Exception {
+	public int deleteReview(Review review, HttpSession session) throws Exception {
 	 int result = 0;
 	 
+	 // Member member = (Member)session.getAttribute("member");
 	 int uidx = reviewService.reviewUidCheck(review.getRidx());
 	 
-	 reviewService.delete(review);
+		/*
+		 * if(member.getUidx() == uidx) {
+		 * 	review.setUidx(member.getUidx());
+		 * 	reviewService.delete(review);
+		 * 
+		 * 	result = 1;
+		 * }
+		 */
 	 
 	 return result; 
 	}
-
+	
+	
+	
 	// 회원 연결 수정필요 및 ajax 추가
 	@ResponseBody
 	@RequestMapping(value = "/detail/review-up", method = RequestMethod.POST)
-	public int updateReview(Review review) throws Exception {
+	public int updateReview(Review review, HttpSession session) throws Exception {
 	 int result = 0;
 	 
+	// Member member = (Member)session.getAttribute("member");
 	 int uidx = reviewService.reviewUidCheck(review.getRidx());
 	 
-	 reviewService.update(review);
-	 
+		/*
+		 * if(member.getUidx().equals(uidx)) { 
+		 * review.setUidx(member.getUidx());
+		 * reviewService.update(review);
+		 * result = 1; 
+		 * }
+		 */
 	 return result; 
 	}
 	
-	@ResponseBody
-	@RequestMapping(value = "/detail/wishcnt", method= RequestMethod.POST)
-	public int wishCnt(@RequestParam("iidx") int iidx) {
-		
-		return wishService.wishCnt(iidx);
-	}
-	
-	// 회원 연결 수정필요 및 ajax 추가
-	@ResponseBody
 	@RequestMapping(value = "/detail/wishcheck", method= RequestMethod.POST)
 	public void wishCheck(@RequestParam("iidx") int iidx, int uidx) {
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -146,6 +162,10 @@ public class BoardController {
 		map.put("uidx", uidx);
 		
 		wishService.wishUpdate(map);
+	}
+	@RequestMapping(value = "/detail/wishcount", method= RequestMethod.POST)
+	public void wishCount(@RequestParam("iidx") int iidx) {
+		wishService.wishCnt(iidx);
 	}
 	
 	

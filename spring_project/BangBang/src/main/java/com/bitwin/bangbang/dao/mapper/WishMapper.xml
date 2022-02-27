@@ -3,7 +3,7 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.bitwin.bangbang.dao.ItemDAO">
+<mapper namespace="com.bitwin.bangbang.dao.WishDAO">
 
 	<!-- 게시글 추천 여부 검색 -->
 	<select id="check" parameterType="map" resultType="int">
@@ -11,8 +11,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 게시글 추천 -->
-	<insert id="wishUpdate" parameterType="map">
-		insert into wishlist values(#{iidx}, #{uidx})
+	<insert id="wishUpdate" parameterType="com.bitwin.bangbang.dao.WishDAO">
+		insert into wishlist (iidx, uidx) values(#{iidx}, #{uidx})
 	</insert>
 	
 	<!-- 게시글 추천 취소 -->

@@ -30,19 +30,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			update review
 			set
 			content=#{content},
-			rating=#{rating}
 			where ridx = #{ridx} and iidx = #{iidx}
 			
 	</update>
 	
 	<!-- 댓글 삭제 -->
 	<delete id="delete" parameterType="com.bitwin.bangbang.domain.Review">
-		delete from review where iidx=#{iidx} and ridx = #{ridx}
+		delete from review where uidx=#{uidx} and ridx = #{ridx}
 	</delete>
 	
 	<!-- 아이디 체크 -->
 		<select id="reviewUidCheck" resultType="int">
- 			select userId
+ 			select uidx
  			from review
       		where ridx = #{ridx}
 		</select>

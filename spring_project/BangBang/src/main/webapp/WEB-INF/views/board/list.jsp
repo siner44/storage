@@ -7,19 +7,6 @@
 <%@include file="../includes/bangbang-nav.jsp"%>
 
 <main class="main">
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">판매 목록</h1>
-        <p class="lead text-muted">팝니다.</p>
-        <p>
-          <a href="#" class="btn btn-primary my-2">추천 상품 판매글</a>
-          <a href="#" class="btn btn-secondary my-2">다른 판매글</a>
-        </p>
-      </div>
-    </div>
-  </section>
-
   <div class="album py-5 bg-light">
     	<div class="search-form margin-top first align-right">
 		<h3 class="hidden">상품 게시물 검색</h3>

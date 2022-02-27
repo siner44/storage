@@ -4,8 +4,8 @@
 
 <div class="container" style="padding-top: 10px;">
     <nav class="nav d-flex justify-content-between">
-      <a class="nav-font" href="#">전체</a>
-      <a class="nav-font" href="#">위스키</a>
+      <a class="nav-font" href="${pageContext.request.contextPath}/board/list">전체</a>
+      <a class="nav-font" href="${pageContext.request.contextPath}/board/list?type=위스키">위스키</a>
       <a class="nav-font" href="#">와인</a>
       <a class="nav-font" href="#">럼</a>
       <a class="nav-font" href="#">맥주</a>

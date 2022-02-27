@@ -13,6 +13,9 @@
 </style>
 
 </head>
+<%@include file="../views/includes/bangbang-header.jsp"%>
+	
+<%@include file="../views/includes/bangbang-nav.jsp"%>
 <body>
 
 	<ul> 
@@ -32,4 +35,5 @@
 
 
 </body>
+<%@include file="../views/includes/bangbang-footer.jsp"%>
 </html>

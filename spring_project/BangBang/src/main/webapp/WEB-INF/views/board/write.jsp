@@ -5,7 +5,7 @@
 	
 <%@include file="../includes/bangbang-nav.jsp"%>
 	
-	<script src="https://cdn.ckeditor.com/ckeditor5/29.1.0/classic/ckeditor.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/ckeditor/ckeditor.js"></script>
 	<main role="main" class="container">
 		<div class="my-3 p-3 bg-white rounded shadow-sm ">
 			<h3>판매 게시물 등록</h3>
@@ -80,7 +80,6 @@
  								 }
  							 });
  						</script>
- 						<%=request.getRealPath("/") %>
 					</div>
 				</div>
 				
@@ -126,12 +125,12 @@
 					<label for="pw" class="col-sm-2 col-form-label">내용</label>
 					<div id="col-sm-10">
 						<textarea id="content" name="content" ></textarea>
-						<script>
-						ClassicEditor
-			            .create( document.querySelector( '#content' ))
-			            .catch( error => {
-			                console.error( error );
-			            } );
+						<script type="text/javascript">
+						$(function(){
+							CKEDITOR.replace('content',{
+								filebrowserUploadUrl: '${pageContext.request.contextPath}/mine/upload.do'	
+							});
+						});
 						</script>
 					</div>
 				</div>

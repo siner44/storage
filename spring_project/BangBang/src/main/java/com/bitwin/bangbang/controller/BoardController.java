@@ -51,7 +51,6 @@ public class BoardController {
 
 	@RequestMapping(value = "insert", method = RequestMethod.POST)
 	public String insert(BoardReg reg, Model model, HttpServletRequest request) throws IllegalStateException, IOException {
-		System.out.println(reg);
 		model.addAttribute("board", boardService.create(reg, request));
 		return "redirect:list";
 	}
@@ -62,13 +61,12 @@ public class BoardController {
 
 	}
 	
-	@RequestMapping("list")
+	@RequestMapping("list-type")
 	public void getListPage(SearchParams params, Model model, @RequestParam("type") String type) throws SQLException {
-		model.addAttribute("board", boardService.getPageView(params));
 		params.setKeyword(type);
-		
+		model.addAttribute("board", boardService.getCateView(params));
 	}
-	
+
 	@RequestMapping("detail")
 	public void getPage(@RequestParam("iidx") int iidx, Model model) {
 		boardService.hits(iidx);

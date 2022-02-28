@@ -25,8 +25,13 @@ public interface BoardDAO {
 	// 게시글 목록
 	public List<Board> selectList(SearchParams params);
 
+	public List<Board> selectTypeList(SearchParams params);
+
 	public int selectTotalCount(Map<String, String> params);
+
+	public int selectCount(Map<String, String> params);
 	
 	public int hits(int iidx);
+	
 		
 }

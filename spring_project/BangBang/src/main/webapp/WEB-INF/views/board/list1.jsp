@@ -16,7 +16,7 @@
 				<label class="hidden">검색분류</label> 
 				<div class="col-auto">
 				<select name="searchType" class="form-control">
-					<option value="title"
+					<option value="name"
 								${param.searchType eq 'title' ? 'selected' : ''}>제목</option>
 				</select> 
 				</div>

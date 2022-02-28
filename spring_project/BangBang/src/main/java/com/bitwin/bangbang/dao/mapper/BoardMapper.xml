@@ -25,7 +25,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<sql id="searchTitle"> 
-		or title like concat('%', #{keyword}, '%')
+		or title like CONCAT('%', #{keyword}, '%')
 	</sql>
 
 	<select id="selectList"
@@ -83,38 +83,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			parameterType="hashMap"
 			resultType="int">
 									
-			select count(*) from sales_board
-			<where>
-				<if test="searchType != null"> 
-					<if test="searchType == 'title'">
-						<include refid="searchTitle"/>
-					</if>
-				</if>
-			</where>
+			select count(*) from sales_board where iidx in (select iidx from item where type=#{keyword})
 	</select>
 	
-	<sql id="searchTitle"> 
-		or title like concat('%', #{keyword}, '%')
-	</sql>
-
-	<select id="selectList"
+	<select id="selectTypeList"
 			parameterType="com.bitwin.bangbang.domain.SearchParams"
 			resultType="com.bitwin.bangbang.domain.Board">
 	
-	select * from sales_board
-	
-	<where>
-		<if test="searchType != null">
-		
-			<if test="searchType == 'title'">
-				<include refid="searchTitle"/>
-			</if>
-		</if>
-	</where>
+	select * from sales_board where iidx in (select iidx from item where type=#{keyword})
 	
 	 order by iidx desc limit #{index}, #{count}
 	
 	</select>
 	
-
 </mapper>

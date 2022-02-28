@@ -66,6 +66,7 @@ public class BoardService {
 			reg.getPhoto2().transferTo(newFile);
 			reg.setPhoto2Name(newFileName);
 		}
+		System.out.println(savePath);
 
 		try {
 			dao = template.getMapper(BoardDAO.class);
@@ -175,7 +176,39 @@ public class BoardService {
 
 		return view;
 	}
+	
+	// 카테고리 목록
+	public Object getCateView(SearchParams params) throws SQLException {
+		int CountPerPage = 10;
 
+		BoardListPageView view = null;
+
+		dao = template.getMapper(BoardDAO.class);
+
+		if (params.getKeyword() == null || params.getKeyword().trim().isEmpty()) {
+			params.setSearchType(null);
+		}
+
+		Map<String, String> searchMap = new HashMap();
+		searchMap.put("searchType", params.getSearchType());
+		searchMap.put("keyword", params.getKeyword());
+
+		int totalCount = dao.selectCount(searchMap);
+
+		int currentPage = params.getP() == 0 ? 1 : params.getP();
+
+		int index = (currentPage - 1) * CountPerPage;
+
+		params.setIndex(index);
+		params.setCount(CountPerPage);
+
+		List<Board> list = dao.selectTypeList(params);
+
+		view = new BoardListPageView(totalCount, currentPage, CountPerPage, list);
+
+		return view;
+	}
+	
 	// 조회수
 	public int hits(int iidx) {
 		dao = template.getMapper(BoardDAO.class);

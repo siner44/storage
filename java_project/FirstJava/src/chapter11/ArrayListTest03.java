@@ -13,6 +13,7 @@ public class ArrayListTest03 {
 		
 		for(int i = 0; i<arr.size(); i++) {
 			String name = (String)arr.get(i);
+			System.out.println(name);
 		}
 		
 	}

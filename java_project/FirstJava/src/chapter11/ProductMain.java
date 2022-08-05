@@ -22,8 +22,7 @@ public class ProductMain {
 			if (br != null)
 				try {
 					br.close();
-				} catch (IOException e) {
-				}
+				} catch (IOException e) {}
 
 		}
 
@@ -84,6 +83,7 @@ public class ProductMain {
 			System.out.printf("%s\t", p.getMaker());
 			System.out.printf("%s\t", p.getStock());
 		}
+		System.out.println();
 
 	}
 	

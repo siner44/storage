@@ -3,7 +3,7 @@ package chapter11;
 import java.util.HashSet;
 import java.util.Iterator;
 
-public class HashSetTest1 {
+public class HashSetTest01 {
 	public static void main(String[] args) {
 		
 		HashSet<String> hashSet = new HashSet<String>();

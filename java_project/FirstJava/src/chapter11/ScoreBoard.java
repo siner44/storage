@@ -48,6 +48,17 @@ public class ScoreBoard {
 		}
 	}
 	
+	public void input() throws IOException {
+		Score s = new Score();
+		
+		System.out.println("이름 : ");
+		s.setName(br.readLine());
+		s.setKorean(parseInputData("국어 점수 입력 : "));
+		s.setEnglish(parseInputData("영어 점수 입력 : "));
+		s.setMath(parseInputData("수학 점수 입력 : "));
+		
+		list.add(s);
+	}
 	
 	public int parseInputData(String title) throws IOException {
 		while(true) {
@@ -67,5 +78,24 @@ public class ScoreBoard {
 		}
 	}
 	
+	public void output() {
+		System.out.println();
+		System.out.println("이름\t국어\t영어\t수학\t총점\t평균\t등급");
+		System.out.println();
+		
+		for(Score s : list) {
+			System.out.print(s.getName() + "\t");
+			System.out.print(s.getKorean() + "\t");
+			System.out.print(s.getEnglish() + "\t");
+			System.out.print(s.getMath() + "\t");
+			System.out.print(s.makeSum() + "\t");
+			System.out.printf("%.2f\t", s.makeAvg());
+			System.out.print(s.makeGrade() + "\t");
+		}
+	}
+	
+	public static void main(String[] args) {
+		new ScoreBoard();
+	}
 
 }

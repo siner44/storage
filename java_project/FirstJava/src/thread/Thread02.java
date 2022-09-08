@@ -7,11 +7,11 @@ public class Thread02 extends Thread{
 	public void run() {
 		while(!stop) {
 			if(work) {
-				System.out.println("ThreadB 작업 내용");
+				System.out.println("Thread02 작업 내용");
 			}else {
 				Thread.yield();
 			}
 		}
-		System.out.println("ThreadB 종료");
+		System.out.println("Thread02 종료");
 	}
 }

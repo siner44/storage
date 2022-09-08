@@ -1,6 +1,6 @@
 package thread;
 
-public class joinEx {
+public class JoinEx {
 	public static void main(String[] args) {
 		SumThread sumThread = new SumThread();
 		sumThread.start();
